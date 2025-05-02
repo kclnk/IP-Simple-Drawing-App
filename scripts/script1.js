@@ -8,8 +8,8 @@ const clearEl = document.getElementById('clear');
 const eraserBtn = document.getElementById('eraser');
 const drawBtn = document.getElementById('draw');
 const toolbox = document.getElementById('toolbox');
-const bgColor = window.getComputedStyle(canvas).backgroundColor;
 const aboutEl = document.getElementById("about");
+const bgColor = window.getComputedStyle(canvas).backgroundColor;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -74,7 +74,7 @@ function getCurrentDrawColor() {
 function drawCircle(x, y, drawColor) {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, Math.PI * 2);
-    
+
     if (isEraser) {
         ctx.globalCompositeOperation = 'destination-out';
     } else {
@@ -89,7 +89,7 @@ function drawLine(x1, y1, x2, y2, drawColor) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
-    
+
     if (isEraser) {
         ctx.globalCompositeOperation = 'destination-out';
         ctx.strokeStyle = 'rgba(0,0,0,1)'; // color doesn't matter in erase mode
@@ -122,8 +122,8 @@ decreaseBtn.addEventListener('click', () => {
 // Color Picker
 dColorEl.addEventListener('change', (e) => {
     dColor = e.target.value;
-        // Only update drawing color if not erasing
-        dColor = e.target.value;
+    // Only update drawing color if not erasing
+    dColor = e.target.value;
 });
 
 // Clear Button

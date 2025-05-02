@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/earlyaccess/lateef.css');
 
 * {
   box-sizing: border-box;
@@ -6,7 +6,8 @@
 
 body {
   background-color: #f5f5f5;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'lateef', serif;
+  font-size: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,4 +145,28 @@ canvas {
 
 #decrease:active {
   border: 5px solid #ffffff;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 0.7rem;
+}
+
+#appTitle {
+  position: absolute;
+  top: 5px;
+  z-index: 3000;
+  opacity: 1;
+  animation: fadeOut 0.7s ease-in-out 0.7s forwards;
+}
+
+#size {
+  font-size: 40px;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
