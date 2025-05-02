@@ -70,7 +70,14 @@ function getCurrentDrawColor() {
 function drawCircle(x, y, drawColor) {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = drawColor;
+    
+    if (isEraser) {
+        ctx.globalCompositeOperation = 'destination-out';
+    } else {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = drawColor;
+    }
+
     ctx.fill();
 }
 
@@ -78,7 +85,15 @@ function drawLine(x1, y1, x2, y2, drawColor) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
-    ctx.strokeStyle = drawColor;
+    
+    if (isEraser) {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.strokeStyle = 'rgba(0,0,0,1)'; // color doesn't matter in erase mode
+    } else {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.strokeStyle = drawColor;
+    }
+
     ctx.lineWidth = size * 2;
     ctx.stroke();
 }
@@ -103,10 +118,8 @@ decreaseBtn.addEventListener('click', () => {
 // Color Picker
 dColorEl.addEventListener('change', (e) => {
     dColor = e.target.value;
-    if (!isEraser) {
         // Only update drawing color if not erasing
         dColor = e.target.value;
-    }
 });
 
 // Clear Button
