@@ -151,8 +151,19 @@ document.addEventListener('mouseup', () => {
 
 document.addEventListener('mousemove', (e) => {
     if (isDragging) {
-        toolbox.style.left = `${e.clientX - dragOffsetX}px`;
-        toolbox.style.top = `${e.clientY - dragOffsetY}px`;
+        const newLeft = e.clientX - dragOffsetX;
+        const newTop = e.clientY - dragOffsetY;
+
+        const canvasRect = canvas.getBoundingClientRect();
+        const toolboxRect = toolbox.getBoundingClientRect();
+
+        // Clamp left/right
+        const clampedLeft = Math.max(canvasRect.left, Math.min(newLeft, canvasRect.right - toolbox.offsetWidth));
+        // Clamp top/bottom
+        const clampedTop = Math.max(canvasRect.top, Math.min(newTop, canvasRect.bottom - toolbox.offsetHeight));
+
+        toolbox.style.left = `${clampedLeft}px`;
+        toolbox.style.top = `${clampedTop}px`;
     }
 });
 
@@ -184,4 +195,32 @@ function downloadCanvas() {
 bgColorEl.addEventListener('input', () => {
     let bgColorFromPicker = bgColorEl.value;
     canvas.style.backgroundColor = bgColorFromPicker;
+});
+
+drawBtn.addEventListener('click', () => {
+    drawBtn.classList.toggle('active');
+});
+
+eraserBtn.addEventListener('click', () => {
+    eraserBtn.classList.toggle('active');
+});
+
+btn.addEventListener('click', () => {
+    aboutEl.classList.toggle('active');
+});
+
+btn.addEventListener('click', () => {
+    aboutEl.classList.toggle('active');
+});
+
+btn.addEventListener('click', () => {
+    clearEl.classList.toggle('active');
+});
+
+btn.addEventListener('click', () => {
+    increaseBtn.classList.toggle('active');
+});
+
+btn.addEventListener('click', () => {
+    decreaseBtn.classList.toggle('active');
 });

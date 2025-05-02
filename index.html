@@ -11,16 +11,20 @@
 <body>
   <canvas id="canvas"></canvas>
   <div class="toolbox" id="toolbox">
-    <button id="decrease"><img id="logo" src="images/down.svg" alt="-"></button>
-    <span id="size">5</span>
-    <button id="increase"><img id="logo" src="images/up.svg" alt="+"></button>
-    <input type="color" id="change-dcolor" class="color">
-    <input type="color" id="change-bgcolor" class="color">
-    <button id="draw"><img id="logo" src="images/draw.svg" alt="D"></button>
-    <button id="eraser"><img id="logo" src="images/eraser.svg" alt="E"></button>
-    <button id="about"><img id="logo" src="images/about.svg" alt="A"></button>
-    <button id="save" onclick="downloadCanvas()"><img id="logo" src="images/save.svg" alt="A"></button>
-    <button id="clear"><img id="logo" src="images/bin.svg" alt="X"></button>
+    <div id="main-tools">
+      <button id="decrease"><img id="logo" src="images/down.svg" alt="-"></button>
+      <span id="size">5</span>
+      <button id="increase"><img id="logo" src="images/up.svg" alt="+"></button>
+      <input type="color" id="change-dcolor" class="color">
+      <input type="color" id="change-bgcolor" class="color">
+      <button id="draw"><img id="logo" src="images/draw.svg" alt="D"></button>
+      <button id="eraser"><img id="logo" src="images/eraser.svg" alt="E"></button>
+    </div>
+    <div id="misc-tools">
+      <button id="about"><img id="logo" src="images/about.svg" alt="A"></button>
+      <button id="save" onclick="downloadCanvas()"><img id="logo" src="images/save.svg" alt="A"></button>
+      <button id="clear"><img id="logo" src="images/bin.svg" alt="X"></button>
+    </div>
   </div>
   <script src="scripts/script1.js"></script>
 </body>
