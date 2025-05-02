@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: bisque;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    height: 90vh;
+    margin: 1rem;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+}
+
+#PageOG {
+    padding-bottom: 10rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+#student-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#info {
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+#logo {
+    width: 30px;
+    height: inherit;
+    cursor: grab;
+}
