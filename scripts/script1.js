@@ -196,7 +196,7 @@ function downloadCanvas() {
     const image = tempCanvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = image;
-    link.download = "my-drawing.png";
+    link.download = "my-Scribble.png";
     link.click();
 }
 
