@@ -16,16 +16,18 @@ canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext('2d');
 
+dColorEl.value = '#B43434';
+bgColorEl.value = '#ffe4c4';
+
 let size = 5;
 let isPressed = false;
 let isEraser = false;
 let isDragging = false;
 let offsetX = 0, offsetY = 0;
 let dragOffsetX = 0, dragOffsetY = 0;
-
-dColorEl.value = '#B43434';
 let dColor = dColorEl.value;
 let x, y;
+
 
 // Mouse Down
 canvas.addEventListener('mousedown', (e) => {
@@ -143,4 +145,30 @@ document.addEventListener('mousemove', (e) => {
 
 aboutEl.addEventListener('click', () => {
     window.location.href = "templates/about.html";
+});
+
+function downloadCanvas() {
+    const tempCanvas = document.createElement("canvas");
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    const tempCtx = tempCanvas.getContext("2d");
+
+    const computedStyle = getComputedStyle(canvas);
+    const backgroundColor = computedStyle.backgroundColor;
+
+    tempCtx.fillStyle = backgroundColor;
+    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    tempCtx.drawImage(canvas, 0, 0);
+
+    const image = tempCanvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "my-drawing.png";
+    link.click();
+}
+
+bgColorEl.addEventListener('input', () => {
+    let bgColorFromPicker = bgColorEl.value;
+    canvas.style.backgroundColor = bgColorFromPicker;
 });

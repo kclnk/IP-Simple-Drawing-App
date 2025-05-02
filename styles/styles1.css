@@ -60,7 +60,7 @@ canvas {
 
 }
 
-.toolbox>*:last-child {
+.toolbox>*:nth-last-child(-n+3) {
   margin-left: auto;
   cursor: grab;
 }
