@@ -122,12 +122,8 @@ canvas {
   border-radius: 1rem;
 }
 
-#draw:active {
+#draw {
   border: 5px solid #63f092;
-}
-
-#eraser:active {
-  border: 5px solid #d82f59;
 }
 
 #about:active {

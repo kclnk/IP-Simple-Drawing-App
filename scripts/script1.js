@@ -23,6 +23,8 @@ let size = 5;
 let isPressed = false;
 let isEraser = false;
 let isDragging = false;
+let drawEnabled = false;
+let eraserEnabled = false;
 let offsetX = 0, offsetY = 0;
 let dragOffsetX = 0, dragOffsetY = 0;
 let dColor = dColorEl.value;
@@ -132,11 +134,15 @@ clearEl.addEventListener('click', () => {
 // Eraser Mode
 eraserBtn.addEventListener('click', () => {
     isEraser = true;
+    drawBtn.style.border = "none";
+    eraserBtn.style.border = "5px solid #d82f59";
 });
 
 // Draw Mode
 drawBtn.addEventListener('click', () => {
     isEraser = false;
+    eraserBtn.style.border = "none";
+    drawBtn.style.border = "5px solid #63f092"
 });
 
 toolbox.addEventListener('mousedown', (e) => {
