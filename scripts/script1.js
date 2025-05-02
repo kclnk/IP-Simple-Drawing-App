@@ -31,6 +31,7 @@ let x, y;
 
 // Mouse Down
 canvas.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
     isPressed = true;
     const rect = canvas.getBoundingClientRect();
     x = (e.clientX - rect.left) * (canvas.width / rect.width);
@@ -48,6 +49,7 @@ document.addEventListener('mouseup', () => {
 // Mouse Move
 canvas.addEventListener('mousemove', (e) => {
     if (isPressed) {
+        if (e.button !== 0) return;
         const rect = canvas.getBoundingClientRect();
         const x2 = (e.clientX - rect.left) * (canvas.width / rect.width);
         const y2 = (e.clientY - rect.top) * (canvas.height / rect.height);
@@ -158,9 +160,9 @@ document.addEventListener('mousemove', (e) => {
         const toolboxRect = toolbox.getBoundingClientRect();
 
         // Clamp left/right
-        const clampedLeft = Math.max(canvasRect.left, Math.min(newLeft, canvasRect.right - toolbox.offsetWidth));
+        const clampedLeft = Math.max(canvasRect.left + 40, Math.min(newLeft, canvasRect.right - toolbox.offsetWidth - 40));
         // Clamp top/bottom
-        const clampedTop = Math.max(canvasRect.top, Math.min(newTop, canvasRect.bottom - toolbox.offsetHeight));
+        const clampedTop = Math.max(canvasRect.top + 40, Math.min(newTop, canvasRect.bottom - toolbox.offsetHeight - 40));
 
         toolbox.style.left = `${clampedLeft}px`;
         toolbox.style.top = `${clampedTop}px`;
